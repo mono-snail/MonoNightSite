@@ -29,7 +29,7 @@ export const screenshots = {
   },
   recording: {
     src: '/images/mononight-recording.jpg',
-    alt: 'MonoNight recording screen with live waveform and hold-to-end control',
+    alt: 'MonoNight recording screen in Power Saving mode with a hold-to-end control',
   },
   report: {
     src: '/images/mononight-report.jpg',
