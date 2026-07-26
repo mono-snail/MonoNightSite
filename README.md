@@ -22,6 +22,12 @@ pnpm run build
 
 静态部署文件输出至 `dist/`。
 
+## Cloudflare Pages 部署
+
+当前站点使用 Cloudflare Pages Direct Upload，并通过
+`night.monoware.app` 提供服务。完整的构建、上传、DNS、HTTPS 验证和回滚流程见
+[Cloudflare Pages 部署与 DNS 配置](docs/cloudflare-pages-deployment.md)。
+
 ## 发布链接
 
 在 [`src/data/release.ts`](src/data/release.ts) 中配置：

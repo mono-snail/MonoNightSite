@@ -1,6 +1,8 @@
-import { Menu, Moon } from 'lucide-react'
+import { Menu } from 'lucide-react'
+import { MonoNightMoonMark } from './MonoNightMoonMark'
 
 const navigation = [
+  { href: '#themes', label: 'Skins' },
   { href: '#experience', label: 'Experience' },
   { href: '#features', label: 'Features' },
   { href: '#privacy', label: 'Privacy' },
@@ -12,7 +14,7 @@ export function SiteHeader() {
       <div className="nav-shell">
         <a className="brand" href="#top" aria-label="MonoNight home">
           <span className="brand-mark" aria-hidden="true">
-            <Moon size={15} fill="currentColor" />
+            <MonoNightMoonMark size={17} />
           </span>
           <span>MonoNight</span>
         </a>

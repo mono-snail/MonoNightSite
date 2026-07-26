@@ -5,6 +5,7 @@ import { Hero } from './components/Hero'
 import { PrivacySection } from './components/PrivacySection'
 import { SiteFooter } from './components/SiteFooter'
 import { SiteHeader } from './components/SiteHeader'
+import { ThemeShowcase } from './components/ThemeShowcase'
 
 export default function App() {
   useEffect(() => {
@@ -34,6 +35,7 @@ export default function App() {
       <SiteHeader />
       <main id="main-content">
         <Hero />
+        <ThemeShowcase />
         <EvidenceSection />
         <FeatureGrid />
         <PrivacySection />

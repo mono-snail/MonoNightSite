@@ -1,5 +1,6 @@
-import { ArrowUpRight, Moon, Sparkles } from 'lucide-react'
+import { ArrowUpRight, Sparkles } from 'lucide-react'
 import { releaseLinks } from '../data/release'
+import { MonoNightMoonMark } from './MonoNightMoonMark'
 
 export function SiteFooter() {
   return (
@@ -36,12 +37,13 @@ export function SiteFooter() {
       <div className="footer-shell section-shell">
         <a className="brand" href="#top" aria-label="Back to the top">
           <span className="brand-mark" aria-hidden="true">
-            <Moon size={15} fill="currentColor" />
+            <MonoNightMoonMark size={17} />
           </span>
           <span>MonoNight</span>
         </a>
         <p>Quietly made for iPhone.</p>
         <nav aria-label="Footer navigation">
+          <a href="#themes">Skins</a>
           <a href="#features">Features</a>
           <a href="#privacy">Privacy</a>
           {releaseLinks.privacyUrl ? (
