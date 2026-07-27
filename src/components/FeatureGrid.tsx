@@ -1,11 +1,11 @@
-import { AudioWaveform, CirclePlay, Moon, Sparkles, Waves } from 'lucide-react'
+import { AudioWaveform, CirclePlay, FileAudio, Moon, Sparkles } from 'lucide-react'
 import { features, type FeatureIcon } from '../data/content'
 
 const icons: Record<FeatureIcon, typeof Moon> = {
   moon: Moon,
   signature: AudioWaveform,
   replay: CirclePlay,
-  sounds: Waves,
+  import: FileAudio,
 }
 
 export function FeatureGrid() {

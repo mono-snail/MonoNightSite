@@ -1,4 +1,4 @@
-export type FeatureIcon = 'moon' | 'signature' | 'replay' | 'sounds'
+export type FeatureIcon = 'moon' | 'signature' | 'replay' | 'import'
 
 export type Feature = {
   icon: FeatureIcon
@@ -60,11 +60,11 @@ export const features: Feature[] = [
       'Review timestamped clips directly from your report when a sound deserves a second listen.',
   },
   {
-    icon: 'sounds',
+    icon: 'import',
     number: '04',
-    title: 'Settle in, then listen',
+    title: 'Bring a recording with you',
     description:
-      'Choose rain, waves, leaves, or a gentle tone as you wind down. MonoNight stops it before recording begins.',
+      'Share an audio file from another app, then keep its analysis and resulting report on your iPhone.',
   },
 ]
 
