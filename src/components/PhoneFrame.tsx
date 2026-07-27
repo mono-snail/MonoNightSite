@@ -16,8 +16,8 @@ export function PhoneFrame({
       <img
         src={src}
         alt={alt}
-        width="1206"
-        height="2622"
+        width="1290"
+        height="2796"
         loading={priority ? 'eager' : 'lazy'}
       />
     </figure>

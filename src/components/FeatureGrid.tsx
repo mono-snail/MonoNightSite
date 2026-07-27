@@ -1,5 +1,13 @@
-import { AudioWaveform, CirclePlay, FileAudio, Moon, Sparkles } from 'lucide-react'
-import { features, type FeatureIcon } from '../data/content'
+import {
+  AudioWaveform,
+  CirclePlay,
+  FileAudio,
+  Moon,
+  Settings2,
+  Sparkles,
+} from 'lucide-react'
+import { features, screenshots, type FeatureIcon } from '../data/content'
+import { PhoneFrame } from './PhoneFrame'
 
 const icons: Record<FeatureIcon, typeof Moon> = {
   moon: Moon,
@@ -37,6 +45,25 @@ export function FeatureGrid() {
           )
         })}
       </div>
+
+      <aside className="settings-highlight" aria-labelledby="settings-highlight-heading">
+        <div className="settings-highlight-copy">
+          <span className="settings-highlight-icon" aria-hidden="true">
+            <Settings2 size={19} strokeWidth={1.8} />
+          </span>
+          <p className="eyebrow">Made for your night</p>
+          <h3 id="settings-highlight-heading">Set the details once, then rest.</h3>
+          <p>
+            Keep the recording experience simple, with the controls you need
+            gathered in one quiet place.
+          </p>
+        </div>
+        <PhoneFrame
+          className="settings-highlight-phone"
+          src={screenshots.settings.src}
+          alt={screenshots.settings.alt}
+        />
+      </aside>
     </section>
   )
 }

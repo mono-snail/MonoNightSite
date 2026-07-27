@@ -16,10 +16,16 @@ export type AppTheme = {
   id: 'deep-blue' | 'sunset-glow' | 'moss-night' | 'petal-glow'
   name: string
   description: string
+  screenshot: string
   primary: string
   secondary: string
   backgroundStart: string
   backgroundEnd: string
+}
+
+export type RecordingScreen = {
+  src: string
+  alt: string
 }
 
 export const screenshots = {
@@ -27,15 +33,38 @@ export const screenshots = {
     src: '/images/mononight-home-release.jpg',
     alt: 'MonoNight ready to start an overnight recording on iPhone',
   },
-  recording: {
-    src: '/images/mononight-recording.jpg',
-    alt: 'MonoNight recording screen in Power Saving mode with a hold-to-end control',
-  },
-  report: {
-    src: '/images/mononight-report.jpg',
-    alt: 'MonoNight Sound Report with Night Signature and replayable sound clip',
+  settings: {
+    src: '/images/mononight-settings.jpg',
+    alt: 'MonoNight settings screen on iPhone',
   },
 } as const
+
+export const recordingScreens: RecordingScreen[] = [
+  {
+    src: '/images/mononight-recording-flow-01.jpg',
+    alt: 'MonoNight recording interface, screen 1 of 6',
+  },
+  {
+    src: '/images/mononight-recording-flow-02.jpg',
+    alt: 'MonoNight recording interface, screen 2 of 6',
+  },
+  {
+    src: '/images/mononight-recording-flow-03.jpg',
+    alt: 'MonoNight recording interface, screen 3 of 6',
+  },
+  {
+    src: '/images/mononight-recording-flow-04.jpg',
+    alt: 'MonoNight recording interface, screen 4 of 6',
+  },
+  {
+    src: '/images/mononight-recording-flow-05.jpg',
+    alt: 'MonoNight recording interface, screen 5 of 6',
+  },
+  {
+    src: '/images/mononight-recording-flow-06.jpg',
+    alt: 'MonoNight recording interface, screen 6 of 6',
+  },
+]
 
 export const features: Feature[] = [
   {
@@ -73,6 +102,7 @@ export const appThemes: AppTheme[] = [
     id: 'deep-blue',
     name: 'Deep Blue',
     description: 'Cool blue for a clear, uninterrupted night.',
+    screenshot: '/images/mononight-home-release.jpg',
     primary: '#4ca6ff',
     secondary: '#73b8ff',
     backgroundStart: '#041136',
@@ -82,6 +112,7 @@ export const appThemes: AppTheme[] = [
     id: 'sunset-glow',
     name: 'Sunset Glow',
     description: 'A warm amber palette for a softer wind-down.',
+    screenshot: '/images/mononight-theme-sunset-glow.jpg',
     primary: '#ff8c33',
     secondary: '#ffb359',
     backgroundStart: '#26050a',
@@ -91,6 +122,7 @@ export const appThemes: AppTheme[] = [
     id: 'moss-night',
     name: 'Moss Night',
     description: 'Natural green tones that stay quiet after dark.',
+    screenshot: '/images/mononight-theme-moss-night.jpg',
     primary: '#52c780',
     secondary: '#9ce8b2',
     backgroundStart: '#041c14',
@@ -100,6 +132,7 @@ export const appThemes: AppTheme[] = [
     id: 'petal-glow',
     name: 'Petal Glow',
     description: 'A soft pink glow with room for the night to settle.',
+    screenshot: '/images/mononight-theme-petal-glow.jpg',
     primary: '#fa6ca6',
     secondary: '#ffb2cf',
     backgroundStart: '#260217',

@@ -1,7 +1,7 @@
 import { useState, type CSSProperties } from 'react'
 import { Check, Palette } from 'lucide-react'
 import { appThemes, type AppTheme } from '../data/content'
-import { MonoNightMoonMark } from './MonoNightMoonMark'
+import { PhoneFrame } from './PhoneFrame'
 
 export function ThemeShowcase() {
   const [selectedTheme, setSelectedTheme] = useState<AppTheme>(appThemes[0]!)
@@ -30,7 +30,7 @@ export function ThemeShowcase() {
         </p>
       </div>
 
-      <div className="theme-stage">
+      <div className="theme-stage" style={previewStyle}>
         <div className="theme-picker">
           <div>
             <p className="theme-picker-label">Choose a night skin</p>
@@ -81,49 +81,11 @@ export function ThemeShowcase() {
         </div>
 
         <div className="theme-preview-wrap">
-          <div
-            className="theme-preview"
-            style={previewStyle}
-            aria-label={`${selectedTheme.name} MonoNight skin preview`}
-          >
-            <div className="theme-preview-aura" aria-hidden="true" />
-            <div className="theme-preview-topline">
-              <span>MONONIGHT</span>
-              <span className="theme-preview-live">
-                <i aria-hidden="true" />
-                READY
-              </span>
-            </div>
-
-            <div className="theme-preview-copy">
-              <p>Sunday, Jul 26</p>
-              <h3>Good evening.</h3>
-            </div>
-
-            <div className="theme-preview-action">
-              <MonoNightMoonMark size={30} />
-              <span>START</span>
-            </div>
-
-            <div className="theme-preview-card">
-              <div className="theme-preview-card-topline">
-                <span>TONIGHT'S SOUND</span>
-                <span>00:00</span>
-              </div>
-              <div className="theme-preview-wave" aria-hidden="true">
-                <i />
-                <i />
-                <i />
-                <i />
-                <i />
-                <i />
-                <i />
-                <i />
-                <i />
-              </div>
-              <p>Ready when you are</p>
-            </div>
-          </div>
+          <PhoneFrame
+            className="theme-preview-phone"
+            src={selectedTheme.screenshot}
+            alt={`${selectedTheme.name} MonoNight theme shown in the app`}
+          />
 
           <div className="theme-preview-caption" aria-live="polite">
             <span className="theme-preview-caption-icon">

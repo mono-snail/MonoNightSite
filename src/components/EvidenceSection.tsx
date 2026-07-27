@@ -1,5 +1,6 @@
-import { Ear, Play, ScanLine } from 'lucide-react'
-import { screenshots } from '../data/content'
+import { useState } from 'react'
+import { ScanLine } from 'lucide-react'
+import { recordingScreens } from '../data/content'
 import { PhoneFrame } from './PhoneFrame'
 
 const steps = [
@@ -21,6 +22,9 @@ const steps = [
 ]
 
 export function EvidenceSection() {
+  const [selectedScreen, setSelectedScreen] = useState(0)
+  const currentScreen = recordingScreens[selectedScreen]!
+
   return (
     <section className="evidence-section section-shell" id="experience">
       <div className="evidence-copy">
@@ -48,22 +52,43 @@ export function EvidenceSection() {
       </div>
 
       <div className="evidence-visual">
-        <div className="evidence-phone evidence-phone-back">
-          <PhoneFrame
-            src={screenshots.recording.src}
-            alt={screenshots.recording.alt}
-          />
+        <div className="recording-flow-heading">
+          <p>Recording flow</p>
+          <strong>
+            {String(selectedScreen + 1).padStart(2, '0')} / {String(recordingScreens.length).padStart(2, '0')}
+          </strong>
         </div>
-        <div className="evidence-phone evidence-phone-front">
-          <PhoneFrame src={screenshots.report.src} alt={screenshots.report.alt} />
+
+        <div
+          className="recording-screen-picker"
+          role="tablist"
+          aria-label="MonoNight recording screens"
+        >
+          {recordingScreens.map((screen, index) => {
+            const isSelected = index === selectedScreen
+
+            return (
+              <button
+                className={`recording-screen-button${isSelected ? ' is-selected' : ''}`}
+                key={screen.src}
+                type="button"
+                role="tab"
+                aria-selected={isSelected}
+                aria-label={`View recording screen ${index + 1} of ${recordingScreens.length}`}
+                onClick={() => setSelectedScreen(index)}
+              >
+                <span>{String(index + 1).padStart(2, '0')}</span>
+              </button>
+            )
+          })}
         </div>
-        <div className="evidence-chip chip-ear">
-          <Ear size={15} aria-hidden="true" />
-          <span>On-device</span>
-        </div>
-        <div className="evidence-chip chip-play">
-          <Play size={14} fill="currentColor" aria-hidden="true" />
-          <span>Replay a moment</span>
+
+        <div className="evidence-flow-phone">
+          <PhoneFrame src={currentScreen.src} alt={currentScreen.alt} />
+          <p aria-live="polite">
+            <span aria-hidden="true" />
+            A quiet, focused recording experience.
+          </p>
         </div>
       </div>
     </section>
