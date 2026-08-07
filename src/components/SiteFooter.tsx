@@ -13,8 +13,8 @@ export function SiteFooter() {
           </p>
           <h2>Keep the night close.</h2>
           <p>
-            MonoNight is preparing for the App Store. Until then, take a look at
-            how one calm night becomes a clear record.
+            MonoNight is now available on the App Store. Start with one quiet
+            tap, then let the night become a clear record.
           </p>
         </div>
         {releaseLinks.appStoreUrl ? (

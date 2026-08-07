@@ -1,4 +1,5 @@
-import { Menu } from 'lucide-react'
+import { ArrowUpRight, Menu } from 'lucide-react'
+import { releaseLinks } from '../data/release'
 import { MonoNightMoonMark } from './MonoNightMoonMark'
 
 const navigation = [
@@ -9,6 +10,8 @@ const navigation = [
 ]
 
 export function SiteHeader() {
+  const appStoreUrl = releaseLinks.appStoreUrl
+
   return (
     <header className="site-header">
       <div className="nav-shell">
@@ -27,8 +30,14 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <a className="nav-cta" href="#experience">
-          See the app
+        <a
+          className="nav-cta"
+          href={appStoreUrl ?? '#experience'}
+          target={appStoreUrl ? '_blank' : undefined}
+          rel={appStoreUrl ? 'noreferrer' : undefined}
+        >
+          {appStoreUrl ? 'App Store' : 'See the app'}
+          {appStoreUrl ? <ArrowUpRight size={15} aria-hidden="true" /> : null}
         </a>
 
         <details className="mobile-nav">
@@ -41,6 +50,11 @@ export function SiteHeader() {
                 {item.label}
               </a>
             ))}
+            {appStoreUrl ? (
+              <a href={appStoreUrl} target="_blank" rel="noreferrer">
+                App Store
+              </a>
+            ) : null}
           </nav>
         </details>
       </div>
