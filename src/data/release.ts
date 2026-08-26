@@ -18,7 +18,7 @@ export function asHttpsUrl(value: string | undefined): string | undefined {
 }
 
 const configuredLinks: ReleaseLinks = {
-  appStoreUrl: 'https://apps.apple.com/app/id6795206724',
+  appStoreUrl: 'https://apps.apple.com/us/app/mononight/id6795206724',
   privacyUrl: undefined,
   supportUrl: undefined,
 }

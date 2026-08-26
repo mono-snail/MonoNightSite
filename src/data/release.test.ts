@@ -20,7 +20,7 @@ describe('asHttpsUrl', () => {
 
   it('points to the approved MonoNight App Store listing', () => {
     expect(releaseLinks.appStoreUrl).toBe(
-      'https://apps.apple.com/app/id6795206724',
+      'https://apps.apple.com/us/app/mononight/id6795206724',
     )
   })
 })
