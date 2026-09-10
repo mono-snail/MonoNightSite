@@ -1,4 +1,4 @@
-import { ArrowDown, LockKeyhole, MoonStar } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, LockKeyhole, MoonStar } from 'lucide-react'
 import { screenshots } from '../data/content'
 import { releaseLinks } from '../data/release'
 import { PhoneFrame } from './PhoneFrame'
@@ -11,35 +11,36 @@ export function Hero() {
       <div className="hero-copy reveal">
         <p className="eyebrow">
           <MoonStar size={14} aria-hidden="true" />
-          MonoNight for iPhone
+          Private overnight audio
         </p>
         <h1>
-          Hear the shape
-          <span>of your night.</span>
+          MonoNight
+          <span>Snore recorder.</span>
         </h1>
         <p className="hero-lede">
-          A quiet record of the sounds that fill your night, made for
-          reflection, not interruption.
+          Hear your snoring. Find the moments that matter.
+          A full-night recording and clear sound timeline, kept on your iPhone.
         </p>
         <div className="hero-actions">
-          <a className="button button-primary" href="#experience">
-            See how it works
-            <ArrowDown size={17} aria-hidden="true" />
-          </a>
           {appStoreUrl ? (
             <a
-              className="button button-secondary"
+              className="button button-primary"
               href={appStoreUrl}
               target="_blank"
               rel="noreferrer"
             >
               Get MonoNight
+              <ArrowUpRight size={17} aria-hidden="true" />
             </a>
           ) : (
             <span className="release-status" role="status">
               Coming to the App Store
             </span>
           )}
+          <a className="button button-secondary" href="#experience">
+            Explore the recordings
+            <ArrowDown size={17} aria-hidden="true" />
+          </a>
         </div>
         <p className="privacy-note">
           <LockKeyhole size={15} aria-hidden="true" />
@@ -59,7 +60,7 @@ export function Hero() {
         />
         <p className="visual-caption">
           <span />
-          One quiet tap, then let the night unfold.
+          Your night. Your recording. Your device.
         </p>
       </div>
     </section>

@@ -70,28 +70,28 @@ export const features: Feature[] = [
   {
     icon: 'moon',
     number: '01',
-    title: 'Let the whole night speak',
+    title: 'Record through the night',
     description:
-      'Place your iPhone by the bed and keep a quiet record of the sounds that rise and settle while you sleep.',
+      'Keep a continuous recording of snoring and other overnight sounds, with no account and no cloud analysis.',
   },
   {
     icon: 'signature',
     number: '02',
-    title: 'See a Night Signature',
+    title: 'See when sounds happened',
     description:
-      'A full-night sound profile puts moments of activity in context, instead of reducing the night to a single number.',
+      'A tagged timeline and Night Signature put detected snoring in the context of your full recording.',
   },
   {
     icon: 'replay',
     number: '03',
-    title: 'Return to the moment',
+    title: 'Hear the evidence',
     description:
-      'Review timestamped clips directly from your report when a sound deserves a second listen.',
+      'Listen to timestamped highlights and review uncertain sounds yourself. Your recording stays close to every result.',
   },
   {
     icon: 'import',
     number: '04',
-    title: 'Bring a recording with you',
+    title: 'Analyze an existing recording',
     description:
       'Share an audio file from another app, then keep its analysis and resulting report on your iPhone.',
   },

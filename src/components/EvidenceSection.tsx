@@ -6,18 +6,18 @@ import { PhoneFrame } from './PhoneFrame'
 const steps = [
   {
     number: '01',
-    title: 'Set it down',
-    description: 'Start with one tap before you sleep.',
+    title: 'Record',
+    description: 'An overnight recording from your bedside iPhone.',
   },
   {
     number: '02',
-    title: 'Let it listen',
-    description: 'Keep an overnight sound record on your iPhone.',
+    title: 'Review',
+    description: 'Detected snoring and other sounds, marked on a timeline.',
   },
   {
     number: '03',
-    title: 'Look back',
-    description: 'Trace the shape of the night in a clear report.',
+    title: 'Listen',
+    description: 'The original audio behind the moments in your report.',
   },
 ]
 
@@ -30,12 +30,12 @@ export function EvidenceSection() {
       <div className="evidence-copy">
         <p className="eyebrow">
           <ScanLine size={14} aria-hidden="true" />
-          A night, in context
+          From recording to report
         </p>
-        <h2>A record, not a guess.</h2>
+        <h2>What did your night sound like?</h2>
         <p className="section-lede">
-          MonoNight keeps the whole soundscape nearby, then helps you return to
-          the moments worth understanding.
+          Follow detected sounds back to the recording. MonoNight describes
+          audio evidence, not sleep stages or a medical diagnosis.
         </p>
 
         <ol className="process-list">

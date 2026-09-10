@@ -35,10 +35,10 @@ export default function App() {
       <SiteHeader />
       <main id="main-content">
         <Hero />
-        <ThemeShowcase />
         <EvidenceSection />
         <FeatureGrid />
         <PrivacySection />
+        <ThemeShowcase />
       </main>
       <SiteFooter />
     </div>
