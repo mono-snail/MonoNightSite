@@ -1,4 +1,4 @@
-import { ArrowUpRight, Sparkles } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, MoonStar } from 'lucide-react'
 import { releaseLinks } from '../data/release'
 import { MonoNightMoonMark } from './MonoNightMoonMark'
 
@@ -8,13 +8,13 @@ export function SiteFooter() {
       <div className="release-panel section-shell">
         <div>
           <p className="eyebrow">
-            <Sparkles size={14} aria-hidden="true" />
-            Made for quieter mornings
+            <MoonStar size={14} aria-hidden="true" />
+            Start with tonight
           </p>
-          <h2>Keep the night close.</h2>
+          <h2>Record the night. Keep the evidence.</h2>
           <p>
-            MonoNight is now available on the App Store. Start with one quiet
-            tap, then let the night become a clear record.
+            MonoNight is available for iPhone. No account, no cloud audio
+            analysis, and no mystery score between you and your recording.
           </p>
         </div>
         {releaseLinks.appStoreUrl ? (
@@ -41,31 +41,26 @@ export function SiteFooter() {
           </span>
           <span>MonoNight</span>
         </a>
-        <p>Quietly made for iPhone.</p>
+        <p>A private night sound journal by MonoWare.</p>
         <nav aria-label="Footer navigation">
-          <a href="#themes">Skins</a>
-          <a href="#features">Features</a>
+          <a href="#listen">Listen</a>
+          <a href="#insights">Insights</a>
           <a href="#privacy">Privacy</a>
           {releaseLinks.privacyUrl ? (
-            <a
-              href={releaseLinks.privacyUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={releaseLinks.privacyUrl} target="_blank" rel="noreferrer">
               Privacy policy
             </a>
           ) : null}
           {releaseLinks.supportUrl ? (
-            <a
-              href={releaseLinks.supportUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={releaseLinks.supportUrl} target="_blank" rel="noreferrer">
               Support
             </a>
           ) : null}
         </nav>
-        <span className="copyright">© 2026 MonoNight</span>
+        <a className="back-to-top" href="#top" aria-label="Back to top">
+          <ArrowUp size={17} aria-hidden="true" />
+        </a>
+        <span className="copyright">© 2026 MonoWare</span>
       </div>
     </footer>
   )

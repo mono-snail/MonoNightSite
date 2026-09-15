@@ -1,4 +1,11 @@
-import { CloudOff, LockKeyhole, ShieldCheck } from 'lucide-react'
+import {
+  ArrowRight,
+  CloudOff,
+  FileCheck2,
+  LockKeyhole,
+  Mic2,
+  ShieldCheck,
+} from 'lucide-react'
 import { privacyPromises } from '../data/content'
 
 export function PrivacySection() {
@@ -8,28 +15,50 @@ export function PrivacySection() {
         <div className="privacy-intro">
           <p className="eyebrow">
             <ShieldCheck size={14} aria-hidden="true" />
-            Private by design
+            Private by architecture
           </p>
-          <h2>Your night is yours.</h2>
+          <h2>Bedroom audio has no business leaving your iPhone.</h2>
           <p>
-            The point of a night record is to let you notice your own patterns,
-            not to create one more place for your audio to go.
+            MonoNight records, analyzes, organizes, and replays your night
+            locally. Sharing happens only when you choose it.
           </p>
-          <div className="privacy-art" aria-hidden="true">
-            <LockKeyhole size={24} />
-            <CloudOff size={20} />
+
+          <div className="privacy-flow" aria-label="MonoNight local data flow">
+            <span>
+              <Mic2 size={18} aria-hidden="true" />
+              Record
+            </span>
+            <ArrowRight size={15} aria-hidden="true" />
+            <span>
+              <FileCheck2 size={18} aria-hidden="true" />
+              Analyze
+            </span>
+            <ArrowRight size={15} aria-hidden="true" />
+            <span>
+              <LockKeyhole size={18} aria-hidden="true" />
+              Keep local
+            </span>
+            <span className="cloud-off">
+              <CloudOff size={18} aria-hidden="true" />
+              No upload
+            </span>
           </div>
         </div>
 
         <div className="privacy-grid">
           {privacyPromises.map((promise) => (
-            <article className="privacy-card" key={promise.title}>
-              <h3>{promise.title}</h3>
+            <article className="privacy-stat" key={promise.label}>
+              <span>{promise.value}</span>
+              <h3>{promise.label}</h3>
               <p>{promise.description}</p>
             </article>
           ))}
         </div>
       </div>
+      <p className="medical-boundary section-shell">
+        MonoNight describes recorded sounds. It does not diagnose apnea,
+        identify who snored in a shared room, or measure sleep stages.
+      </p>
     </section>
   )
 }

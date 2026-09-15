@@ -1,160 +1,140 @@
-export type FeatureIcon = 'moon' | 'signature' | 'replay' | 'import'
+export type ProductShot = {
+  src: string
+  alt: string
+}
 
-export type Feature = {
-  icon: FeatureIcon
+export type Problem = {
   number: string
+  title: string
+  solution: string
+}
+
+export type CapabilityIcon =
+  | 'shield'
+  | 'sunrise'
+  | 'library'
+  | 'sliders'
+  | 'import'
+  | 'export'
+
+export type Capability = {
+  icon: CapabilityIcon
   title: string
   description: string
 }
 
 export type PrivacyPromise = {
-  title: string
+  value: string
+  label: string
   description: string
 }
 
-export type AppTheme = {
-  id: 'deep-blue' | 'sunset-glow' | 'moss-night' | 'petal-glow'
-  name: string
-  description: string
-  screenshot: string
-  primary: string
-  secondary: string
-  backgroundStart: string
-  backgroundEnd: string
-}
-
-export type RecordingScreen = {
-  src: string
-  alt: string
-}
-
-export const screenshots = {
+export const screenshots: Record<
+  'home' | 'recording' | 'summary' | 'listen' | 'nights' | 'insights',
+  ProductShot
+> = {
   home: {
-    src: '/images/mononight-home-release.jpg',
-    alt: 'MonoNight ready to start an overnight recording on iPhone',
+    src: '/images/mononight-home-2026.jpg',
+    alt: 'MonoNight Tonight screen with the recording control and latest night',
   },
-  settings: {
-    src: '/images/mononight-settings.jpg',
-    alt: 'MonoNight settings screen on iPhone',
+  recording: {
+    src: '/images/mononight-recording-protection-2026.jpg',
+    alt: 'MonoNight recording screen showing captured audio, storage, and protection status',
   },
-} as const
+  summary: {
+    src: '/images/mononight-sound-report-2026.jpg',
+    alt: 'MonoNight Sound Report showing an example comparable-night baseline',
+  },
+  listen: {
+    src: '/images/mononight-listen-workspace-2026.jpg',
+    alt: 'MonoNight Listen workspace with a pinned timeline and three-column sound clip grid',
+  },
+  nights: {
+    src: '/images/mononight-nights-2026.jpg',
+    alt: 'MonoNight searchable Nights archive',
+  },
+  insights: {
+    src: '/images/mononight-insights-2026.jpg',
+    alt: 'MonoNight Insights view showing example comparison data',
+  },
+}
 
-export const recordingScreens: RecordingScreen[] = [
+export const problems: Problem[] = [
   {
-    src: '/images/mononight-recording-flow-01.jpg',
-    alt: 'MonoNight recording interface, screen 1 of 6',
+    number: '01',
+    title: 'Eight hours is too much audio to scrub.',
+    solution: 'Jump from the full-night timeline straight to a detected moment.',
   },
   {
-    src: '/images/mononight-recording-flow-02.jpg',
-    alt: 'MonoNight recording interface, screen 2 of 6',
+    number: '02',
+    title: 'A score cannot tell you what actually happened.',
+    solution: 'See the timestamp, category, duration, and original audio together.',
   },
   {
-    src: '/images/mononight-recording-flow-03.jpg',
-    alt: 'MonoNight recording interface, screen 3 of 6',
-  },
-  {
-    src: '/images/mononight-recording-flow-04.jpg',
-    alt: 'MonoNight recording interface, screen 4 of 6',
-  },
-  {
-    src: '/images/mononight-recording-flow-05.jpg',
-    alt: 'MonoNight recording interface, screen 5 of 6',
-  },
-  {
-    src: '/images/mononight-recording-flow-06.jpg',
-    alt: 'MonoNight recording interface, screen 6 of 6',
+    number: '03',
+    title: 'One unusual night is not a pattern.',
+    solution: 'Compare only nights with compatible recordings and analysis settings.',
   },
 ]
 
-export const features: Feature[] = [
+export const capabilities: Capability[] = [
   {
-    icon: 'moon',
-    number: '01',
-    title: 'Record through the night',
+    icon: 'shield',
+    title: 'Recording protection',
     description:
-      'Keep a continuous recording of snoring and other overnight sounds, with no account and no cloud analysis.',
+      'See captured duration, free storage, power status, pauses, and successful recoveries while audio is written locally.',
   },
   {
-    icon: 'signature',
-    number: '02',
-    title: 'See when sounds happened',
+    icon: 'sunrise',
+    title: 'Morning context',
     description:
-      'A tagged timeline and Night Signature put detected snoring in the context of your full recording.',
+      'Wake to a factual sound summary, a first clip to review, and an honest explanation when evidence is limited.',
   },
   {
-    icon: 'replay',
-    number: '03',
-    title: 'Hear the evidence',
+    icon: 'library',
+    title: 'A usable night archive',
     description:
-      'Listen to timestamped highlights and review uncertain sounds yourself. Your recording stays close to every result.',
+      'Search dates, notes, and factors. Filter favorites, imported recordings, or nights that still need attention.',
+  },
+  {
+    icon: 'sliders',
+    title: 'Conditions that matter',
+    description:
+      'Keep room, phone placement, bedtime factors, and morning feeling beside the night they describe.',
   },
   {
     icon: 'import',
-    number: '04',
-    title: 'Analyze an existing recording',
+    title: 'Bring existing audio',
     description:
-      'Share an audio file from another app, then keep its analysis and resulting report on your iPhone.',
-  },
-]
-
-export const appThemes: AppTheme[] = [
-  {
-    id: 'deep-blue',
-    name: 'Deep Blue',
-    description: 'Cool blue for a clear, uninterrupted night.',
-    screenshot: '/images/mononight-home-release.jpg',
-    primary: '#4ca6ff',
-    secondary: '#73b8ff',
-    backgroundStart: '#041136',
-    backgroundEnd: '#0a2868',
+      'Share an audio file into MonoNight for the same local analysis and evidence-linked report.',
   },
   {
-    id: 'sunset-glow',
-    name: 'Sunset Glow',
-    description: 'A warm amber palette for a softer wind-down.',
-    screenshot: '/images/mononight-theme-moss-night.jpg',
-    primary: '#ff8c33',
-    secondary: '#ffb359',
-    backgroundStart: '#26050a',
-    backgroundEnd: '#66180a',
-  },
-  {
-    id: 'moss-night',
-    name: 'Moss Night',
-    description: 'Natural green tones that stay quiet after dark.',
-    screenshot: '/images/mononight-theme-sunset-glow.jpg',
-    primary: '#52c780',
-    secondary: '#9ce8b2',
-    backgroundStart: '#041c14',
-    backgroundEnd: '#0a4529',
-  },
-  {
-    id: 'petal-glow',
-    name: 'Petal Glow',
-    description: 'A soft pink glow with room for the night to settle.',
-    screenshot: '/images/mononight-theme-petal-glow.jpg',
-    primary: '#fa6ca6',
-    secondary: '#ffb2cf',
-    backgroundStart: '#260217',
-    backgroundEnd: '#700b3c',
+    icon: 'export',
+    title: 'Share on your terms',
+    description:
+      'Export a report card, text summary, CSV, or original audio. Private notes stay out by default.',
   },
 ]
 
 export const privacyPromises: PrivacyPromise[] = [
   {
-    title: 'No account',
-    description: 'Open the app and start. There is no profile to create.',
+    value: '0',
+    label: 'accounts',
+    description: 'Open the app and record. No profile is required.',
   },
   {
-    title: 'Stays on iPhone',
-    description: 'Recordings, clips, and reports are kept on your device.',
+    value: '0',
+    label: 'cloud uploads',
+    description: 'Recording and sound analysis stay on your iPhone.',
   },
   {
-    title: 'No cloud analysis',
-    description: 'Your night is reviewed locally, without sending its audio away.',
+    value: '0',
+    label: 'tracking SDKs',
+    description: 'No ad network or behavioral profile sits behind the app.',
   },
   {
-    title: 'No tracking layer',
-    description: 'No analytics SDK, ad network, or behavioural profile is involved.',
+    value: '1',
+    label: 'owner',
+    description: 'Inspect, export, or delete your own records whenever you choose.',
   },
 ]

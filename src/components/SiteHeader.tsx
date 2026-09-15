@@ -1,16 +1,19 @@
+import { useRef } from 'react'
 import { ArrowUpRight, Menu } from 'lucide-react'
 import { releaseLinks } from '../data/release'
 import { MonoNightMoonMark } from './MonoNightMoonMark'
 
 const navigation = [
-  { href: '#themes', label: 'Skins' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#features', label: 'Features' },
+  { href: '#why', label: 'Why MonoNight' },
+  { href: '#listen', label: 'Listen' },
+  { href: '#insights', label: 'Insights' },
   { href: '#privacy', label: 'Privacy' },
 ]
 
 export function SiteHeader() {
   const appStoreUrl = releaseLinks.appStoreUrl
+  const mobileNavRef = useRef<HTMLDetailsElement>(null)
+  const closeMobileNav = () => mobileNavRef.current?.removeAttribute('open')
 
   return (
     <header className="site-header">
@@ -40,18 +43,23 @@ export function SiteHeader() {
           {appStoreUrl ? <ArrowUpRight size={15} aria-hidden="true" /> : null}
         </a>
 
-        <details className="mobile-nav">
+        <details className="mobile-nav" ref={mobileNavRef}>
           <summary aria-label="Open navigation menu">
             <Menu size={19} aria-hidden="true" />
           </summary>
           <nav aria-label="Mobile navigation">
             {navigation.map((item) => (
-              <a key={item.href} href={item.href}>
+              <a key={item.href} href={item.href} onClick={closeMobileNav}>
                 {item.label}
               </a>
             ))}
             {appStoreUrl ? (
-              <a href={appStoreUrl} target="_blank" rel="noreferrer">
+              <a
+                href={appStoreUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={closeMobileNav}
+              >
                 App Store
               </a>
             ) : null}

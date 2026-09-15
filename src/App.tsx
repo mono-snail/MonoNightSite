@@ -2,10 +2,11 @@ import { useEffect } from 'react'
 import { EvidenceSection } from './components/EvidenceSection'
 import { FeatureGrid } from './components/FeatureGrid'
 import { Hero } from './components/Hero'
+import { InsightSection } from './components/InsightSection'
 import { PrivacySection } from './components/PrivacySection'
+import { ProblemStrip } from './components/ProblemStrip'
 import { SiteFooter } from './components/SiteFooter'
 import { SiteHeader } from './components/SiteHeader'
-import { ThemeShowcase } from './components/ThemeShowcase'
 
 export default function App() {
   useEffect(() => {
@@ -35,10 +36,11 @@ export default function App() {
       <SiteHeader />
       <main id="main-content">
         <Hero />
+        <ProblemStrip />
         <EvidenceSection />
+        <InsightSection />
         <FeatureGrid />
         <PrivacySection />
-        <ThemeShowcase />
       </main>
       <SiteFooter />
     </div>

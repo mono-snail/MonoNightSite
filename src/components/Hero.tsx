@@ -1,66 +1,89 @@
-import { ArrowDown, ArrowUpRight, LockKeyhole, MoonStar } from 'lucide-react'
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Check,
+  LockKeyhole,
+  MoonStar,
+} from 'lucide-react'
 import { screenshots } from '../data/content'
 import { releaseLinks } from '../data/release'
 import { PhoneFrame } from './PhoneFrame'
+
+const proofPoints = ['On-device analysis', 'Original audio attached', 'No account']
 
 export function Hero() {
   const appStoreUrl = releaseLinks.appStoreUrl
 
   return (
-    <section className="hero section-shell" id="top">
-      <div className="hero-copy reveal">
-        <p className="eyebrow">
-          <MoonStar size={14} aria-hidden="true" />
-          Private overnight audio
-        </p>
-        <h1>
-          MonoNight
-          <span>Snore recorder.</span>
-        </h1>
-        <p className="hero-lede">
-          Hear your snoring. Find the moments that matter.
-          A full-night recording and clear sound timeline, kept on your iPhone.
-        </p>
-        <div className="hero-actions">
-          {appStoreUrl ? (
-            <a
-              className="button button-primary"
-              href={appStoreUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Get MonoNight
-              <ArrowUpRight size={17} aria-hidden="true" />
-            </a>
-          ) : (
-            <span className="release-status" role="status">
-              Coming to the App Store
-            </span>
-          )}
-          <a className="button button-secondary" href="#experience">
-            Explore the recordings
-            <ArrowDown size={17} aria-hidden="true" />
-          </a>
-        </div>
-        <p className="privacy-note">
-          <LockKeyhole size={15} aria-hidden="true" />
-          Recording and analysis stay on your device.
-        </p>
-      </div>
-
-      <div className="hero-visual reveal reveal-delayed">
-        <div className="orbit orbit-one" aria-hidden="true" />
-        <div className="orbit orbit-two" aria-hidden="true" />
-        <div className="moon-halo" aria-hidden="true" />
+    <section className="hero" id="top">
+      <div className="hero-product-scene" aria-hidden="true">
         <PhoneFrame
           src={screenshots.home.src}
-          alt={screenshots.home.alt}
+          alt=""
           priority
-          className="hero-phone"
+          className="hero-phone hero-phone-home"
         />
-        <p className="visual-caption">
-          <span />
-          Your night. Your recording. Your device.
+        <PhoneFrame
+          src={screenshots.recording.src}
+          alt=""
+          priority
+          className="hero-phone hero-phone-listen"
+        />
+      </div>
+
+      <div className="hero-shade" aria-hidden="true" />
+
+      <div className="hero-content section-shell">
+        <div className="hero-copy reveal">
+          <p className="eyebrow">
+            <MoonStar size={14} aria-hidden="true" />
+            Private night sound recorder
+          </p>
+          <h1>MonoNight</h1>
+          <p className="hero-statement">
+            Hear what happened.
+            <span>Know what changed.</span>
+          </p>
+          <p className="hero-lede">
+            Record the full night, find the sounds that matter, and compare
+            them with nights that are genuinely comparable.
+          </p>
+
+          <div className="hero-actions">
+            {appStoreUrl ? (
+              <a
+                className="button button-primary"
+                href={appStoreUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Get MonoNight
+                <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
+            ) : (
+              <span className="release-status" role="status">
+                Coming to the App Store
+              </span>
+            )}
+            <a className="button button-secondary" href="#listen">
+              See how it works
+              <ArrowDown size={17} aria-hidden="true" />
+            </a>
+          </div>
+
+          <ul className="hero-proof" aria-label="MonoNight privacy highlights">
+            {proofPoints.map((point) => (
+              <li key={point}>
+                <Check size={13} strokeWidth={2.2} aria-hidden="true" />
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <p className="hero-privacy">
+          <LockKeyhole size={14} aria-hidden="true" />
+          Your recording stays on your iPhone.
         </p>
       </div>
     </section>

@@ -1,69 +1,91 @@
 import {
-  AudioWaveform,
-  CirclePlay,
-  FileAudio,
-  Moon,
-  Settings2,
-  Sparkles,
+  Archive,
+  AudioLines,
+  FileInput,
+  FileOutput,
+  Languages,
+  Palette,
+  ShieldCheck,
+  SlidersHorizontal,
+  Sunrise,
 } from 'lucide-react'
-import { features, screenshots, type FeatureIcon } from '../data/content'
-import { PhoneFrame } from './PhoneFrame'
+import { capabilities, type CapabilityIcon } from '../data/content'
 
-const icons: Record<FeatureIcon, typeof Moon> = {
-  moon: Moon,
-  signature: AudioWaveform,
-  replay: CirclePlay,
-  import: FileAudio,
+const icons: Record<CapabilityIcon, typeof ShieldCheck> = {
+  shield: ShieldCheck,
+  sunrise: Sunrise,
+  library: Archive,
+  sliders: SlidersHorizontal,
+  import: FileInput,
+  export: FileOutput,
 }
+
+const themes = [
+  { name: 'Deep Blue', color: '#5da9ff' },
+  { name: 'Sunset Glow', color: '#ff934f' },
+  { name: 'Moss Night', color: '#72c996' },
+  { name: 'Petal Glow', color: '#ef6ea7' },
+]
 
 export function FeatureGrid() {
   return (
     <section className="feature-section section-shell" id="features">
-      <div className="section-heading">
-        <p className="eyebrow">
-          <Sparkles size={14} aria-hidden="true" />
-          What stays with you
+      <div className="feature-heading">
+        <div>
+          <p className="eyebrow">
+            <AudioLines size={14} aria-hidden="true" />
+            The complete night journal
+          </p>
+          <h2>Useful before bed. Clear in the morning. Better over time.</h2>
+        </div>
+        <p className="section-lede">
+          The latest MonoNight release connects reliable recording, evidence
+          review, organization, comparison, and export into one local workflow.
         </p>
-        <h2>Everything you need. Nothing between you and the night.</h2>
       </div>
 
       <div className="feature-grid">
-        {features.map((feature) => {
-          const Icon = icons[feature.icon]
+        {capabilities.map((capability, index) => {
+          const Icon = icons[capability.icon]
 
           return (
-            <article className="feature-card" key={feature.number}>
+            <article className="feature-card" key={capability.title}>
               <div className="feature-topline">
                 <span className="feature-icon" aria-hidden="true">
-                  <Icon size={21} strokeWidth={1.7} />
+                  <Icon size={20} strokeWidth={1.7} />
                 </span>
-                <span className="feature-number">{feature.number}</span>
+                <span className="feature-number">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
               </div>
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
+              <h3>{capability.title}</h3>
+              <p>{capability.description}</p>
             </article>
           )
         })}
       </div>
 
-      <aside className="settings-highlight" aria-labelledby="settings-highlight-heading">
-        <div className="settings-highlight-copy">
-          <span className="settings-highlight-icon" aria-hidden="true">
-            <Settings2 size={19} strokeWidth={1.8} />
-          </span>
-          <p className="eyebrow">Made for your night</p>
-          <h3 id="settings-highlight-heading">Set the details once, then rest.</h3>
-          <p>
-            Keep the recording experience simple, with the controls you need
-            gathered in one quiet place.
-          </p>
+      <div className="personalization-strip">
+        <div className="personalization-copy">
+          <Palette size={19} strokeWidth={1.7} aria-hidden="true" />
+          <div>
+            <strong>Four night themes</strong>
+            <p>Choose a calmer bedside palette without changing the workflow.</p>
+          </div>
         </div>
-        <PhoneFrame
-          className="settings-highlight-phone"
-          src={screenshots.settings.src}
-          alt={screenshots.settings.alt}
-        />
-      </aside>
+        <div className="theme-swatches" aria-label="Available MonoNight themes">
+          {themes.map((theme) => (
+            <span key={theme.name}>
+              <i style={{ backgroundColor: theme.color }} aria-hidden="true" />
+              {theme.name}
+            </span>
+          ))}
+        </div>
+        <div className="language-note">
+          <Languages size={19} strokeWidth={1.7} aria-hidden="true" />
+          <span>English · 简体中文 · 繁體中文 · 日本語 · 한국어</span>
+        </div>
+      </div>
     </section>
   )
 }

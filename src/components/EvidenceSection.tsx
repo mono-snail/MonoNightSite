@@ -1,93 +1,82 @@
-import { useState } from 'react'
-import { ScanLine } from 'lucide-react'
-import { recordingScreens } from '../data/content'
+import {
+  ChevronsUp,
+  Grid3X3,
+  Layers3,
+  LocateFixed,
+  MousePointer2,
+} from 'lucide-react'
+import { screenshots } from '../data/content'
 import { PhoneFrame } from './PhoneFrame'
 
-const steps = [
+const listenDetails = [
   {
-    number: '01',
-    title: 'Record',
-    description: 'An overnight recording from your bedside iPhone.',
+    icon: LocateFixed,
+    title: 'Keep the whole night in view',
+    description:
+      'The timeline and transport stay pinned while you move through the clips below.',
   },
   {
-    number: '02',
-    title: 'Review',
-    description: 'Detected snoring and other sounds, marked on a timeline.',
+    icon: Grid3X3,
+    title: 'Scan clips three at a time',
+    description:
+      'A compact grid replaces the endless one-clip-per-row list on long recordings.',
   },
   {
-    number: '03',
-    title: 'Listen',
-    description: 'The original audio behind the moments in your report.',
+    icon: Layers3,
+    title: 'Collapse noise. Page through volume.',
+    description:
+      'Fold categories you do not need and jump to the first or latest page of a busy night.',
   },
 ]
 
 export function EvidenceSection() {
-  const [selectedScreen, setSelectedScreen] = useState(0)
-  const currentScreen = recordingScreens[selectedScreen]!
-
   return (
-    <section className="evidence-section section-shell" id="experience">
-      <div className="evidence-copy">
-        <p className="eyebrow">
-          <ScanLine size={14} aria-hidden="true" />
-          From recording to report
-        </p>
-        <h2>What did your night sound like?</h2>
-        <p className="section-lede">
-          Follow detected sounds back to the recording. MonoNight describes
-          audio evidence, not sleep stages or a medical diagnosis.
-        </p>
-
-        <ol className="process-list">
-          {steps.map((step) => (
-            <li key={step.number}>
-              <span>{step.number}</span>
-              <div>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
-
-      <div className="evidence-visual">
-        <div className="recording-flow-heading">
-          <p>Recording flow</p>
-          <strong>
-            {String(selectedScreen + 1).padStart(2, '0')} / {String(recordingScreens.length).padStart(2, '0')}
-          </strong>
+    <section className="evidence-section" id="listen">
+      <div className="section-shell evidence-layout">
+        <div className="evidence-visual reveal-on-scroll">
+          <div className="evidence-screen-label">
+            <span>Listen workspace</span>
+            <strong>01</strong>
+          </div>
+          <PhoneFrame
+            src={screenshots.listen.src}
+            alt={screenshots.listen.alt}
+            className="evidence-phone"
+          />
+          <div className="evidence-marker evidence-marker-top">
+            <ChevronsUp size={15} aria-hidden="true" />
+            Pinned context
+          </div>
+          <div className="evidence-marker evidence-marker-bottom">
+            <MousePointer2 size={15} aria-hidden="true" />
+            Tap any clip
+          </div>
         </div>
 
-        <div
-          className="recording-screen-picker"
-          role="tablist"
-          aria-label="MonoNight recording screens"
-        >
-          {recordingScreens.map((screen, index) => {
-            const isSelected = index === selectedScreen
+        <div className="evidence-copy">
+          <p className="eyebrow">Built for long recordings</p>
+          <h2>Eight hours in. Seconds to the moment.</h2>
+          <p className="section-lede">
+            MonoNight turns a full night into a navigable map. Every result
+            leads back to a timestamp and the audio that produced it.
+          </p>
 
-            return (
-              <button
-                className={`recording-screen-button${isSelected ? ' is-selected' : ''}`}
-                key={screen.src}
-                type="button"
-                role="tab"
-                aria-selected={isSelected}
-                aria-label={`View recording screen ${index + 1} of ${recordingScreens.length}`}
-                onClick={() => setSelectedScreen(index)}
-              >
-                <span>{String(index + 1).padStart(2, '0')}</span>
-              </button>
-            )
-          })}
-        </div>
+          <div className="evidence-details">
+            {listenDetails.map(({ icon: Icon, title, description }) => (
+              <article key={title}>
+                <span className="detail-icon" aria-hidden="true">
+                  <Icon size={19} strokeWidth={1.7} />
+                </span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
 
-        <div className="evidence-flow-phone">
-          <PhoneFrame src={currentScreen.src} alt={currentScreen.alt} />
-          <p aria-live="polite">
-            <span aria-hidden="true" />
-            A quiet, focused recording experience.
+          <p className="evidence-boundary">
+            Selection is passive. Playback starts only when you ask for it.
           </p>
         </div>
       </div>
